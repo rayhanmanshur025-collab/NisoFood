@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NisoFood | Beranda - No.1 Traditional Frozen Food</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <h1>Niso<span>Food</span></h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Beranda</a></li>
+                    <li><a href="tentang.html">Tentang</a></li>
+                    <li><a href="produk.html">Produk</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="badge">Warisan Rasa Nusantara</span>
+                    <h2>Rasa <span class="highlight">Tradisional</span> yang <br>Beku, Tetap Autentik</h2>
+                    <p>Sajikan kehangatan masakan rumahan dalam hitungan menit. NisoFood menghadirkan frozen food tradisional berkualitas, tanpa pengawet, dan siap olah.</p>
+                    <div class="hero-buttons">
+                        <a href="produk.html" class="btn-primary">Lihat Semua Produk <i class="fas fa-arrow-right"></i></a>
+                        <a href="kontak.html" class="btn-secondary">Hubungi Kami</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="img-placeholder">
+                        <i class="fas fa-image"></i>
+                        <p>[GAMBAR HERO]</p>
+                        <small>Ganti dengan foto produk unggulan</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Mengapa NisoFood?</span>
+                    <h3>Keunggulan Kami</h3>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card"><i class="fas fa-temperature-low"></i><h4>Rantai Dingin Terjaga</h4><p>Pengiriman dari freezer ke freezer, suhu -18°C.</p></div>
+                    <div class="feature-card"><i class="fas fa-seedling"></i><h4>Bumbu Alami</h4><p>Resep turun temurun, tanpa pengawet.</p></div>
+                    <div class="feature-card"><i class="fas fa-stopwatch"></i><h4>Siap Saji 10 Menit</h4><p>Praktis untuk harimu yang sibuk.</p></div>
+                    <div class="feature-card"><i class="fas fa-certificate"></i><h4>Halal & Higienis</h4><p>Bersertifikat halal.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="best-seller">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Best Seller</span>
+                    <h3>Favorit Keluarga Indonesia</h3>
+                </div>
+                <div class="product-grid" id="best-seller-grid">
+                    <!-- Akan diisi JavaScript dengan 3 produk pertama -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo"><i class="fas fa-utensils"></i><h2>Niso<span>Food</span></h2></div>
+                    <p>The No.1 Traditional Frozen Food. Cita rasa otentik untuk seluruh Indonesia.</p>
+                    <div class="socials"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-tiktok"></i></a></div>
+                </div>
+                <div class="footer-col"><h4>Jelajahi</h4><ul><li><a href="index.html">Beranda</a></li><li><a href="tentang.html">Tentang</a></li><li><a href="produk.html">Produk</a></li><li><a href="kontak.html">Kontak</a></li></ul></div>
+                <div class="footer-col"><h4>Kontak & Alamat</h4><ul><li><i class="fas fa-map-marker-alt"></i> Gang Masjid Al-Makmur, Gandarian Utara</li><li><i class="fab fa-whatsapp"></i> 0857-1876-9301</li><li><i class="fas fa-envelope"></i> hello@nisofood.id</li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>© 2025 NisoFood - Traditional Frozen Food</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Data produk diambil dari array global yang didefinisikan di script.js
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof produkData !== 'undefined') {
+                const bestSellerContainer = document.getElementById('best-seller-grid');
+                if (bestSellerContainer) {
+                    const top3 = produkData.slice(0, 3);
+                    bestSellerContainer.innerHTML = top3.map(produk => `
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="${produk.gambar}" alt="${produk.nama}" style="width:100%; border-radius:16px; aspect-ratio:1/1; object-fit:cover;">
+                            </div>
+                            <div class="product-info">
+                                <h4>${produk.nama}</h4>
+                                <p>${produk.deskripsi}</p>
+                                <div class="price">${produk.harga}</div>
+                                <a href="kontak.html" class="btn-order">Pesan via WA</a>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
